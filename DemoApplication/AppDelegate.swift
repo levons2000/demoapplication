@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  DemoApplication
-//
-//  Created by Taron Kalashyan on 1/25/19.
-//  Copyright © 2019 name. All rights reserved.
-//
-
 import UIKit
 import CoreData
 
@@ -13,11 +5,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let rootWireframe = RootWireframe()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        self.window = UIWindow(frame: UIScreen.main.bounds);
+        return self.rootWireframe.application(didFinishLaunchingWithOptions: launchOptions, window: self.window!)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
