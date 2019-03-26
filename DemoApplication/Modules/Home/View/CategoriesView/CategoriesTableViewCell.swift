@@ -1,15 +1,13 @@
-//
-//  categoriesTableViewCell.swift
-//  DemoApplication
-//
-//  Created by levon on 3/21/19.
-//  Copyright © 2019 name. All rights reserved.
-//
-
 import UIKit
 
-class categoriesTableViewCell: UITableViewCell {
-
+class CategoriesTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var newsImage: UIImageView!
+    
+    
+    @IBOutlet weak var newsContent: UITextView!
+    
+    @IBOutlet weak var newsFavoriteButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

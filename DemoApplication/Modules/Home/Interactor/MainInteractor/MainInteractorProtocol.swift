@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol MainInteractorProtocol {
+    func initTableViewItem(url: URL, tableView: UITableView)
+}

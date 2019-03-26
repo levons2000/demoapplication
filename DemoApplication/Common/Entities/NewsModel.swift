@@ -1,5 +1,5 @@
 import Foundation
-struct Json4Swift_Base : Codable {
+struct NewsModel : Codable {
 	let status : String?
 	let totalResults : Int?
 	let articles : [Articles]?

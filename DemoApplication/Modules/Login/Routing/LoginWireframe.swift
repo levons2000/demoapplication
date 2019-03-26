@@ -9,6 +9,10 @@ class LoginWireframe: NSObject, LoginWireframeProtocol {
         return instance
     }
     
+    private override init() {
+        
+    }
+    
     var loginScreenViewController: LoginViewController?
     var window: UIWindow?
     
@@ -16,7 +20,16 @@ class LoginWireframe: NSObject, LoginWireframeProtocol {
         window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = UIStoryboard.init(name: "Home",
                                                     bundle: nil).instantiateViewController(withIdentifier:
-                                                        "HomeViewController") as? HomeViewController
+                                                        "HomeViewController") as? SWRevealViewController
+        self.window!.rootViewController = homeViewController
+        self.window!.makeKeyAndVisible()
+    }
+    
+    func presentRegisterScreen() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let homeViewController = UIStoryboard.init(name: "Register",
+                                                   bundle: nil).instantiateViewController(withIdentifier:
+                                                    "RegisterViewController") as? RegisterViewController
         self.window!.rootViewController = homeViewController
         self.window!.makeKeyAndVisible()
     }

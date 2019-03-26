@@ -11,7 +11,7 @@ import UIKit
 class NewsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var newsImage: UIImageView!
-    @IBOutlet weak var newsContent: UITextField!
+    @IBOutlet weak var newsContent: UITextView!
     @IBOutlet weak var newsFavorite: UIButton!
     
     
