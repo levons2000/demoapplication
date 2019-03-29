@@ -1,6 +1,5 @@
 import UIKit
 
-
 class CollapsingTableViewController: UITableViewController {
     
     let mainInteractor: MainInteractor = MainInteractor.sharedInstance
@@ -77,12 +76,12 @@ class CollapsingTableViewController: UITableViewController {
         if offset > -0.5 {
             UIView.animate(withDuration: 0.2) {
                 offset = 1
-                let color = UIColor(red: 1, green: 1, blue: 1, alpha: offset)
-                let navigationColor = UIColor.blue
-                self.navigationController?.navigationBar.tintColor = navigationColor
+                let color = UIColor(red: 0.1294, green: 0.5882, blue: 0.9529, alpha: offset)
+                //let navigationColor = UIColor.blue
+                //self.navigationController?.navigationBar.tintColor = navigationColor
                 self.navigationController?.navigationBar.backgroundColor = color
                 UIApplication.shared.statusBarView?.backgroundColor = color
-                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationColor]
+                //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: navigationColor]
                 self.navigationController?.navigationBar.barStyle = .default
             }
         } else {

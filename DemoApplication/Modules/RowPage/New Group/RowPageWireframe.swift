@@ -24,8 +24,7 @@ class RowPageWireframe: NSObject, RowPageWireframeProtocol {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let webViewController = UIStoryboard.init(name: "WebPage",
                                                     bundle: nil).instantiateViewController(withIdentifier:
-                                                        "WebPageViewController") as? WebPageViewController
-       // webViewController?.urlString = mainInteractor.dataArray[newsIndex].url!
+                                                        "WebPageNavigationController") as? UINavigationController
         self.window?.rootViewController = webViewController
         self.window?.makeKeyAndVisible()
     }

@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 0.1294, green: 0.5882, blue: 0.9529, alpha: 1)
         let borderColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
         loginTextView.layer.borderWidth = 0.5
         loginTextView.layer.borderColor = borderColor.cgColor
@@ -37,6 +38,7 @@ class LoginViewController: UIViewController {
                 self.showToast(controller: self, message: "Bad Email or Password", seconds: 3)
             }
         }
+        loginButton.isEnabled = true
     }
     
     @IBAction func registerAction(_ sender: Any) {
