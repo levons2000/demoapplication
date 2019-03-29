@@ -14,6 +14,8 @@ class MainInteractor: NSObject, MainInteractorProtocol {
     var dataArray = Array<Articles>()
     var imageArray = Array<UIImage?>()
     
+    var indexOfNew = 0
+    
     private static var instance: MainInteractor = {
         return MainInteractor()
     }()

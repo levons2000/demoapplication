@@ -13,7 +13,6 @@ class LoginWireframe: NSObject, LoginWireframeProtocol {
         
     }
     
-    var loginScreenViewController: LoginViewController?
     var window: UIWindow?
     
     func presentHomeScreen() {

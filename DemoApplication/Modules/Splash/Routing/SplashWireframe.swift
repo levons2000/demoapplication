@@ -39,7 +39,7 @@ class SplashWireframe: NSObject, SplashWireframeProtocol {
     func presentHomeViewController() {
         let mainViewController = UIStoryboard.init(name: "Home",
                                                    bundle: nil).instantiateViewController(withIdentifier:
-                                                   "MainViewController") as? MainViewController
+                                                   "HomeViewController") as? SWRevealViewController
         self.window!.rootViewController = mainViewController
         self.window!.makeKeyAndVisible()
     }

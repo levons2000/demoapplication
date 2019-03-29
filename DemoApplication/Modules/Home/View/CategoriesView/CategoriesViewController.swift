@@ -93,11 +93,11 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rowPageScreenViewController = UIStoryboard.init(name: "RowPage",
-                                                           bundle: nil).instantiateViewController(withIdentifier:
-                                                            "CollapsingTableViewController") as! CollapsingTableViewController
-        rowPageScreenViewController.indexOfNew = indexPath.row
-        self.window!.rootViewController = rowPageScreenViewController
+        let rowPageNavigationController = UIStoryboard.init(name: "RowPage",
+                                                            bundle: nil).instantiateViewController(withIdentifier:
+                                                                "CollapsingNavigationController") as! UINavigationController
+        mainInteractor.indexOfNew = indexPath.row
+        self.window!.rootViewController = rowPageNavigationController
         self.window!.makeKeyAndVisible()
     }
     

@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0813B4902243C2F900E19848 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0813B48F2243C2F900E19848 /* CategoriesTableViewCell.swift */; };
-		0813B4982243D3F800E19848 /* RowPageViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0813B4972243D3F800E19848 /* RowPageViewControllerProtocol.swift */; };
-		0813B49A2243D43D00E19848 /* RowPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0813B4992243D43D00E19848 /* RowPage.storyboard */; };
 		081A75602241127D0028E9D1 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A755D2241127D0028E9D1 /* Articles.swift */; };
 		081A75612241127D0028E9D1 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A755E2241127D0028E9D1 /* Source.swift */; };
 		081A75622241127D0028E9D1 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081A755F2241127D0028E9D1 /* NewsModel.swift */; };
+		082CBD57224BB82E00F85C18 /* RowPageWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082CBD56224BB82E00F85C18 /* RowPageWireframe.swift */; };
+		082CBD59224BB84A00F85C18 /* RowPageWireframeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082CBD58224BB84A00F85C18 /* RowPageWireframeProtocol.swift */; };
+		08321C58224D03B700075B19 /* WebPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08321C56224D03B700075B19 /* WebPage.storyboard */; };
+		08321C59224D03B700075B19 /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08321C57224D03B700075B19 /* WebPageViewController.swift */; };
+		08321C5F224D10EB00075B19 /* CollapsingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08321C5C224D10EB00075B19 /* CollapsingTableViewController.swift */; };
+		08321C60224D10EB00075B19 /* RowPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08321C5D224D10EB00075B19 /* RowPage.storyboard */; };
+		08321C61224D10EB00075B19 /* CollapsingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08321C5E224D10EB00075B19 /* CollapsingTableViewCell.swift */; };
 		08361561224258DF00062B3D /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08361560224258DF00062B3D /* CategoriesViewController.swift */; };
 		083615652242590F00062B3D /* CategoriesViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083615642242590F00062B3D /* CategoriesViewControllerProtocol.swift */; };
 		08752243223F7EE70061E87F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08752242223F7EE70061E87F /* SWRevealViewController.m */; };
@@ -36,7 +41,6 @@
 		08BA8664223BDD0000BE48F2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA8663223BDD0000BE48F2 /* HomeInteractor.swift */; };
 		08BA8666223BDD0E00BE48F2 /* HomeInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA8665223BDD0E00BE48F2 /* HomeInteractorProtocol.swift */; };
 		08BA866C223BDD3900BE48F2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BA866B223BDD3900BE48F2 /* Home.storyboard */; };
-		08E245022248A837009AAE25 /* CollapsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E245012248A837009AAE25 /* CollapsingViewController.swift */; };
 		08E245082248C15D009AAE25 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E245072248C15D009AAE25 /* Register.storyboard */; };
 		08E2450A2248C1AB009AAE25 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E245092248C1AB009AAE25 /* RegisterViewController.swift */; };
 		08E2450C2248C749009AAE25 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08E2450B2248C749009AAE25 /* GoogleService-Info.plist */; };
@@ -67,11 +71,16 @@
 
 /* Begin PBXFileReference section */
 		0813B48F2243C2F900E19848 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
-		0813B4972243D3F800E19848 /* RowPageViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowPageViewControllerProtocol.swift; sourceTree = "<group>"; };
-		0813B4992243D43D00E19848 /* RowPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RowPage.storyboard; sourceTree = "<group>"; };
 		081A755D2241127D0028E9D1 /* Articles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		081A755E2241127D0028E9D1 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		081A755F2241127D0028E9D1 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		082CBD56224BB82E00F85C18 /* RowPageWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowPageWireframe.swift; sourceTree = "<group>"; };
+		082CBD58224BB84A00F85C18 /* RowPageWireframeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowPageWireframeProtocol.swift; sourceTree = "<group>"; };
+		08321C56224D03B700075B19 /* WebPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebPage.storyboard; sourceTree = "<group>"; };
+		08321C57224D03B700075B19 /* WebPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
+		08321C5C224D10EB00075B19 /* CollapsingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsingTableViewController.swift; sourceTree = "<group>"; };
+		08321C5D224D10EB00075B19 /* RowPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RowPage.storyboard; sourceTree = "<group>"; };
+		08321C5E224D10EB00075B19 /* CollapsingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsingTableViewCell.swift; sourceTree = "<group>"; };
 		08361560224258DF00062B3D /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		083615642242590F00062B3D /* CategoriesViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerProtocol.swift; sourceTree = "<group>"; };
 		08752240223F7EE60061E87F /* DemoApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApplication-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -97,7 +106,6 @@
 		08BA8663223BDD0000BE48F2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		08BA8665223BDD0E00BE48F2 /* HomeInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorProtocol.swift; sourceTree = "<group>"; };
 		08BA866B223BDD3900BE48F2 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		08E245012248A837009AAE25 /* CollapsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsingViewController.swift; sourceTree = "<group>"; };
 		08E245072248C15D009AAE25 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		08E245092248C1AB009AAE25 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		08E2450B2248C749009AAE25 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -161,6 +169,8 @@
 		0813B4932243D38900E19848 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
+				082CBD56224BB82E00F85C18 /* RowPageWireframe.swift */,
+				082CBD58224BB84A00F85C18 /* RowPageWireframeProtocol.swift */,
 			);
 			name = Routing;
 			path = "New Group";
@@ -169,11 +179,44 @@
 		0813B4942243D3A300E19848 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0813B4972243D3F800E19848 /* RowPageViewControllerProtocol.swift */,
-				0813B4992243D43D00E19848 /* RowPage.storyboard */,
-				08E245012248A837009AAE25 /* CollapsingViewController.swift */,
+				08321C5E224D10EB00075B19 /* CollapsingTableViewCell.swift */,
+				08321C5C224D10EB00075B19 /* CollapsingTableViewController.swift */,
+				08321C5D224D10EB00075B19 /* RowPage.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		082CBD4C224BB7BF00F85C18 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				082CBD4F224BB7E500F85C18 /* Router */,
+				082CBD4E224BB7DC00F85C18 /* Interactor */,
+				082CBD4D224BB7CE00F85C18 /* View */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		082CBD4D224BB7CE00F85C18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08321C56224D03B700075B19 /* WebPage.storyboard */,
+				08321C57224D03B700075B19 /* WebPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		082CBD4E224BB7DC00F85C18 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		082CBD4F224BB7E500F85C18 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		0836155F224258BD00062B3D /* CategoriesView */ = {
@@ -341,6 +384,7 @@
 		84E552EE21FAF77A005A5E3A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				082CBD4C224BB7BF00F85C18 /* Web */,
 				08E245032248C11F009AAE25 /* Register */,
 				0813B4912243D34200E19848 /* RowPage */,
 				84E552F221FAF803005A5E3A /* Home */,
@@ -560,9 +604,10 @@
 			files = (
 				08BA865A223BB27800BE48F2 /* Login.storyboard in Resources */,
 				08E2450C2248C749009AAE25 /* GoogleService-Info.plist in Resources */,
+				08321C58224D03B700075B19 /* WebPage.storyboard in Resources */,
 				08BA866C223BDD3900BE48F2 /* Home.storyboard in Resources */,
 				08E245082248C15D009AAE25 /* Register.storyboard in Resources */,
-				0813B49A2243D43D00E19848 /* RowPage.storyboard in Resources */,
+				08321C60224D10EB00075B19 /* RowPage.storyboard in Resources */,
 				08BA863A223B81F600BE48F2 /* LaunchScreen.storyboard in Resources */,
 				84E552D221FAF0A5005A5E3A /* Assets.xcassets in Resources */,
 				84E5530021FAF90F005A5E3A /* Splash.storyboard in Resources */,
@@ -645,15 +690,16 @@
 				0813B4902243C2F900E19848 /* CategoriesTableViewCell.swift in Sources */,
 				08BA8664223BDD0000BE48F2 /* HomeInteractor.swift in Sources */,
 				0875224C223F8CE80061E87F /* HomeMenuTableViewController.swift in Sources */,
-				08E245022248A837009AAE25 /* CollapsingViewController.swift in Sources */,
+				08321C59224D03B700075B19 /* WebPageViewController.swift in Sources */,
+				082CBD59224BB84A00F85C18 /* RowPageWireframeProtocol.swift in Sources */,
 				84E552D021FAF0A4005A5E3A /* DemoApplication.xcdatamodeld in Sources */,
 				08752243223F7EE70061E87F /* SWRevealViewController.m in Sources */,
 				08BA8660223BDCDD00BE48F2 /* HomeWireframe.swift in Sources */,
 				081A75612241127D0028E9D1 /* Source.swift in Sources */,
-				0813B4982243D3F800E19848 /* RowPageViewControllerProtocol.swift in Sources */,
 				08BA865E223BB28800BE48F2 /* LoginViewControllerProtocol.swift in Sources */,
 				08752252223FA0AA0061E87F /* NewsTableViewCell.swift in Sources */,
 				0875224E223F9D4C0061E87F /* MainInteractor.swift in Sources */,
+				08321C61224D10EB00075B19 /* CollapsingTableViewCell.swift in Sources */,
 				08BA8654223BB24E00BE48F2 /* LoginWireframe.swift in Sources */,
 				08BA865C223BB28000BE48F2 /* LoginViewController.swift in Sources */,
 				08361561224258DF00062B3D /* CategoriesViewController.swift in Sources */,
@@ -673,6 +719,8 @@
 				0875224A223F8C710061E87F /* MainViewControllerProtocol.swift in Sources */,
 				08BA8658223BB26B00BE48F2 /* LoginInteractorProtocol.swift in Sources */,
 				08BA8656223BB26400BE48F2 /* LoginInteractor.swift in Sources */,
+				08321C5F224D10EB00075B19 /* CollapsingTableViewController.swift in Sources */,
+				082CBD57224BB82E00F85C18 /* RowPageWireframe.swift in Sources */,
 				84E5530221FAFA2C005A5E3A /* SplashInteractor.swift in Sources */,
 				081A75602241127D0028E9D1 /* Articles.swift in Sources */,
 				08BA8650223BB1AB00BE48F2 /* AppConstants.swift in Sources */,

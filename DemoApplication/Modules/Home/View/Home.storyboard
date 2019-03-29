@@ -132,19 +132,40 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newspaper" translatesAutoresizingMaskIntoConstraints="NO" id="nPd-tZ-41h">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newspaper" translatesAutoresizingMaskIntoConstraints="NO" id="nPd-tZ-41h">
                                     <rect key="frame" x="8" y="8" width="100" height="84"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="84" id="542-Fe-IaH"/>
+                                        <constraint firstAttribute="width" constant="100" id="x21-CJ-83Q"/>
+                                    </constraints>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IOS News" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7N-UN-Bvi">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IOS News" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7N-UN-Bvi">
                                     <rect key="frame" x="8" y="129" width="168" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="168" id="HMZ-Fs-T2G"/>
+                                    </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ik6-ri-gie">
+                                    <rect key="frame" x="223" y="129" width="30" height="30"/>
+                                    <state key="normal" image="camera"/>
+                                    <connections>
+                                        <action selector="cameraAction:" destination="Ut8-2h-gEJ" eventType="touchUpInside" id="o9d-9o-fHU"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.36397806360000001" green="0.81206368849999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="G7N-UN-Bvi" firstAttribute="leading" secondItem="nPd-tZ-41h" secondAttribute="leading" id="5mW-kA-dZ6"/>
+                                <constraint firstItem="ik6-ri-gie" firstAttribute="leading" secondItem="G7N-UN-Bvi" secondAttribute="trailing" constant="47" id="Hcl-zy-7fm"/>
+                                <constraint firstItem="G7N-UN-Bvi" firstAttribute="leading" secondItem="Kfy-5e-6Z4" secondAttribute="leading" constant="8" id="fZB-4k-Aqs"/>
+                                <constraint firstItem="ik6-ri-gie" firstAttribute="top" secondItem="G7N-UN-Bvi" secondAttribute="top" id="lHK-I4-0JI"/>
+                                <constraint firstItem="G7N-UN-Bvi" firstAttribute="top" secondItem="nPd-tZ-41h" secondAttribute="bottom" constant="37" id="sMl-nr-qia"/>
+                                <constraint firstAttribute="bottom" secondItem="ik6-ri-gie" secondAttribute="bottom" constant="8" id="txg-Oe-EBN"/>
+                                <constraint firstItem="ik6-ri-gie" firstAttribute="bottom" secondItem="G7N-UN-Bvi" secondAttribute="bottom" id="uFd-4J-bgW"/>
+                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="5oO-f7-eIa">
@@ -352,6 +373,9 @@
                             <outlet property="delegate" destination="Ut8-2h-gEJ" id="GQC-Xt-3cI"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="userImage" destination="nPd-tZ-41h" id="Sj7-v2-B48"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvE-2i-X6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -495,6 +519,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="30" height="30"/>
         <image name="categories" width="30" height="30"/>
         <image name="following" width="30" height="30"/>
         <image name="home" width="30" height="30"/>
