@@ -13,6 +13,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         initActivityIndicator()
+        self.favoriteTableView.delegate = self
+        self.favoriteTableView.dataSource = self
         if revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController().revealToggle(_:))
@@ -37,6 +39,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let homeWireframe: HomeWireframe = HomeWireframe.sharedInstance
         mainInteractor.indexOfNew = indexPath.row
+        CategoriesInteractor.sharedInstance.isFavorite = true
         homeWireframe.presentCollapsingPage()
     }
 

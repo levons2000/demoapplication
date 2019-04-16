@@ -43,6 +43,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let homeWireframe: HomeWireframe = HomeWireframe.sharedInstance
         categoriesInteractor.indexOfNew = indexPath.row
         categoriesInteractor.typeOfNew = nil
+        categoriesInteractor.isFavorite = false
         homeWireframe.presentCollapsingPage()
     }
     

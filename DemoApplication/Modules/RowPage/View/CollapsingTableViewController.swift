@@ -4,6 +4,7 @@ class CollapsingTableViewController: UITableViewController, CollapsingTableViewC
     
     let mainInteractor: MainInteractor = MainInteractor.sharedInstance
     let categoriesInteractor: CategoriesInteractor = CategoriesInteractor.sharedInstance
+    let favoriteInteractor: FavoriteInteractor = FavoriteInteractor.sharedInstance
     
     let rowPageWireframe: RowPageWireframe = RowPageWireframe.sharedInstance
     
@@ -19,9 +20,17 @@ class CollapsingTableViewController: UITableViewController, CollapsingTableViewC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initData()
+    }
+    
+    func initData() {
         var newsDescription: String = ""
-        
+        if categoriesInteractor.isFavorite {
+            if favoriteInteractor.favoriteArray[mainInteractor.indexOfNew].image != nil {
+                newsImage.image = UIImage(data: favoriteInteractor.favoriteArray[mainInteractor.indexOfNew].image! as Data)
+            }
+            newsDescription = favoriteInteractor.favoriteArray[mainInteractor.indexOfNew].content!
+        } else {
         if categoriesInteractor.typeOfNew == nil {
             newsImage.image = mainInteractor.mainImageArray[categoriesInteractor.indexOfNew]
             if mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].description != nil {
@@ -52,6 +61,7 @@ class CollapsingTableViewController: UITableViewController, CollapsingTableViewC
             case .none:
                 break
             }
+        }
         }
         
         if newsDescription != "" {

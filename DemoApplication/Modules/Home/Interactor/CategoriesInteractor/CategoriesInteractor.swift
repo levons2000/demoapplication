@@ -16,6 +16,7 @@ class CategoriesInteractor: NSObject, CategoriesInteractorProtocol {
     
     var indexOfNew = 0
     var typeOfNew: NewsType? = nil
+    var isFavorite: Bool = false
     
     var isClear = false
     

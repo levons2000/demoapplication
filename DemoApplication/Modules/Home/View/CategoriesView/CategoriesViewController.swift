@@ -132,6 +132,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         let homeWireframe: HomeWireframe = HomeWireframe.sharedInstance
         categoriesInteractor.indexOfNew = indexPath.row
         categoriesInteractor.typeOfNew = self.typeOfNew
+        categoriesInteractor.isFavorite = false
         homeWireframe.presentCollapsingPage()
     }
     
