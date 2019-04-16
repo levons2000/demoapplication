@@ -8,7 +8,8 @@ class CollapsingRowPageNavigationController: UINavigationController {
         floaty.itemButtonColor = UIColor.white
         floaty.plusColor = UIColor.white
         floaty.addItem(icon: UIImage(named: "favorite")) { item in
-            
+            let collapsingInteractor: RowPageInteractor = RowPageInteractor.sharedInstance
+            collapsingInteractor.addToFavorite()
         }
         floaty.addItem(icon: UIImage(named: "open_in_browser")) { item in
             let wireframe: RowPageWireframe = RowPageWireframe.sharedInstance

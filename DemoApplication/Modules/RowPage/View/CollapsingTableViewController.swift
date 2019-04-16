@@ -1,16 +1,15 @@
 import UIKit
 
-class CollapsingTableViewController: UITableViewController {
+class CollapsingTableViewController: UITableViewController, CollapsingTableViewControllerProtocol {
     
     let mainInteractor: MainInteractor = MainInteractor.sharedInstance
+    let categoriesInteractor: CategoriesInteractor = CategoriesInteractor.sharedInstance
     
     let rowPageWireframe: RowPageWireframe = RowPageWireframe.sharedInstance
     
     
     @IBOutlet weak var newsImage: UIImageView!
-    
     @IBOutlet weak var newsContent: UITextView!
-    
     
     var headerView: UIView!
     var newHeaderLayer: CAShapeLayer!
@@ -20,10 +19,42 @@ class CollapsingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsImage.image = mainInteractor.imageArray[mainInteractor.indexOfNew]
-        var newsDescription = ""
-        if mainInteractor.dataArray[mainInteractor.indexOfNew].description != nil {
-            newsDescription = mainInteractor.dataArray[mainInteractor.indexOfNew].description!
+        
+        var newsDescription: String = ""
+        
+        if categoriesInteractor.typeOfNew == nil {
+            newsImage.image = mainInteractor.mainImageArray[categoriesInteractor.indexOfNew]
+            if mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].description != nil {
+                newsDescription = mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].description!
+            }
+        } else {
+            switch categoriesInteractor.typeOfNew {
+            case .some(.Sport):
+                newsImage.image = categoriesInteractor.sportImageArray[categoriesInteractor.indexOfNew]
+                if categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].description != nil {
+                    newsDescription = categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].description!
+                }
+            case .some(.Food):
+                newsImage.image = categoriesInteractor.foodImageArray[categoriesInteractor.indexOfNew]
+                if categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].description != nil {
+                    newsDescription = categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].description!
+                }
+            case .some(.Politics):
+                newsImage.image = categoriesInteractor.politicsImageArray[categoriesInteractor.indexOfNew]
+                if categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].description != nil {
+                    newsDescription = categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].description!
+                }
+            case .some(.Tech):
+                newsImage.image = categoriesInteractor.techImageArray[categoriesInteractor.indexOfNew]
+                if categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].description != nil {
+                    newsDescription = categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].description!
+                }
+            case .none:
+                break
+            }
+        }
+        
+        if newsDescription != "" {
             for _ in 0...2 {
                 newsDescription += newsDescription
             }

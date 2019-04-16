@@ -1,28 +1,22 @@
-//
-//  CategoriesViewController.swift
-//  DemoApplication
-//
-//  Created by levon on 3/20/19.
-//  Copyright © 2019 name. All rights reserved.
-//
-
 import UIKit
 
-class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoriesViewControllerProtocol {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
     @IBOutlet weak var segmentController: UISegmentedControl!
-    
-    
     @IBOutlet weak var categoriesTableView: UITableView!
+    
+    var progressBar = UIActivityIndicatorView()
+    
+    var typeOfNew: NewsType = .Sport
     
     var window: UIWindow?
     
-    let mainInteractor = MainInteractor.sharedInstance
+    let categoriesInteractor: CategoriesInteractor = CategoriesInteractor.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initActivityIndicator()
         if revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController().revealToggle(_:))
@@ -39,13 +33,17 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     private func updateView() {
         switch segmentController.selectedSegmentIndex {
         case 0:
-            mainInteractor.initTableViewItem(url: URL(string: SPORTAPIURL)!, tableView: categoriesTableView)
+            categoriesInteractor.typeOfNew = NewsType.Sport
+            categoriesInteractor.initCategoriesTableView(tableView: categoriesTableView, progressBar: progressBar)
         case 1:
-            mainInteractor.initTableViewItem(url: URL(string: FOODAPIURL)!, tableView: categoriesTableView)
+            categoriesInteractor.typeOfNew = NewsType.Food
+            categoriesInteractor.initCategoriesTableView(tableView: categoriesTableView, progressBar: progressBar)
         case 2:
-            mainInteractor.initTableViewItem(url: URL(string: POLITICSAPIURL)!, tableView: categoriesTableView)
+            categoriesInteractor.typeOfNew = NewsType.Politics
+            categoriesInteractor.initCategoriesTableView(tableView: categoriesTableView, progressBar: progressBar)
         case 3:
-            mainInteractor.initTableViewItem(url: URL(string: TECHAPIURL)!, tableView: categoriesTableView)
+            categoriesInteractor.typeOfNew = NewsType.Tech
+            categoriesInteractor.initCategoriesTableView(tableView: categoriesTableView, progressBar: progressBar)
         default: break
         }
     }
@@ -79,26 +77,69 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainInteractor.imageArray.count
+        if !categoriesInteractor.isClear {
+            switch categoriesInteractor.typeOfNew {
+            case .some(.Sport):
+                self.typeOfNew = NewsType.Sport
+                return categoriesInteractor.sportImageArray.count
+            case .some(.Food):
+                self.typeOfNew = NewsType.Food
+                return categoriesInteractor.foodImageArray.count
+            case .some(.Politics):
+                self.typeOfNew = NewsType.Politics
+                return categoriesInteractor.politicsImageArray.count
+            case .some(.Tech):
+                self.typeOfNew = NewsType.Tech
+                return categoriesInteractor.techImageArray.count
+            case .none:
+                break
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CategoriesTableViewCell = categoriesTableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell") as! CategoriesTableViewCell
-        cell.newsContent.text = mainInteractor.dataArray[indexPath.row].title!
-        if mainInteractor.imageArray[indexPath.row] != nil {
-            cell.newsImage.image = mainInteractor.imageArray[indexPath.row]
+        switch categoriesInteractor.typeOfNew {
+        case .some(.Sport):
+            cell.newsContent.text = categoriesInteractor.sportDataArray[indexPath.row].title!
+            if categoriesInteractor.sportImageArray[indexPath.row] != nil {
+                cell.newsImage.image = categoriesInteractor.sportImageArray[indexPath.row]
+            }
+        case .some(.Food):
+            cell.newsContent.text = categoriesInteractor.foodDataArray[indexPath.row].title!
+            if categoriesInteractor.foodImageArray[indexPath.row] != nil {
+                cell.newsImage.image = categoriesInteractor.foodImageArray[indexPath.row]
+            }
+        case .some(.Politics):
+            cell.newsContent.text = categoriesInteractor.politicsDataArray[indexPath.row].title!
+            if categoriesInteractor.politicsImageArray[indexPath.row] != nil {
+                cell.newsImage.image = categoriesInteractor.politicsImageArray[indexPath.row]
+            }
+        case .some(.Tech):
+            cell.newsContent.text = categoriesInteractor.techDataArray[indexPath.row].title!
+            if categoriesInteractor.techImageArray[indexPath.row] != nil {
+                cell.newsImage.image = categoriesInteractor.techImageArray[indexPath.row]
+            }
+        case .none:
+            break
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let rowPageNavigationController = UIStoryboard.init(name: "RowPage",
-                                                            bundle: nil).instantiateViewController(withIdentifier:
-                                                                "CollapsingNavigationController") as! UINavigationController
-        mainInteractor.indexOfNew = indexPath.row
-        self.window!.rootViewController = rowPageNavigationController
-        self.window!.makeKeyAndVisible()
+        let homeWireframe: HomeWireframe = HomeWireframe.sharedInstance
+        categoriesInteractor.indexOfNew = indexPath.row
+        categoriesInteractor.typeOfNew = self.typeOfNew
+        homeWireframe.presentCollapsingPage()
+    }
+    
+    func initActivityIndicator() {
+        progressBar = UIActivityIndicatorView(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+        progressBar.style = UIActivityIndicatorView.Style.gray
+        progressBar.center = self.view.center
+        self.view.addSubview(progressBar)
     }
     
 }

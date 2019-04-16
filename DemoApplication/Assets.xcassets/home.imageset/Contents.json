@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "home.png",
+      "filename" : "icons8-главная-50.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "home@2x.png",
+      "filename" : "icons8-главная-100.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "home@3x.png",
+      "filename" : "icons8-главная-500.png",
       "scale" : "3x"
     }
   ],

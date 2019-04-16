@@ -2,17 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "following.png",
+      "filename" : "icons8-червы-filled-50.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "following@2x.png",
+      "filename" : "icons8-червы-filled-100.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "following@3x.png",
       "scale" : "3x"
     }
   ],

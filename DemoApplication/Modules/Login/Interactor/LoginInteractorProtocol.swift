@@ -1,5 +1,5 @@
-import UIKit
+import Foundation
 
-class LoginInteractor: NSObject {
-    
+@objc protocol LoginInteractorProtocol {
+    func signIn(email: String, password: String, controller: UIViewController)
 }
