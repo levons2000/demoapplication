@@ -22,34 +22,68 @@ class RowPageInteractor: NSObject, RowPageInteractorProtocol {
     func addToFavorite() {
         let categoriesInteractor: CategoriesInteractor = CategoriesInteractor.sharedInstance
         let mainInteractor: MainInteractor = MainInteractor.sharedInstance
-        let entity = SavedNews(context: PersistenceService.context)
+        
+        
         switch categoriesInteractor.typeOfNew {
+        
         case .some(.Sport):
-            entity.title = categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].title
-            entity.content = categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].content
-            let imageData: NSData = categoriesInteractor.sportImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
-            entity.image = imageData
+            if !isExistsInDB(title: categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].title!) {
+                let entity = SavedNews(context: PersistenceService.context)
+                entity.title = categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].title
+                entity.content = categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].content
+                let imageData: NSData = categoriesInteractor.sportImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
+                entity.image = imageData
+            }
         case .some(.Food):
-            entity.title = categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].title
-            entity.content = categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].content
-            let imageData: NSData = categoriesInteractor.foodImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
-            entity.image = imageData
+            if !isExistsInDB(title: categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].title!) {
+                let entity = SavedNews(context: PersistenceService.context)
+                entity.title = categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].title
+                entity.content = categoriesInteractor.foodDataArray[categoriesInteractor.indexOfNew].content
+                let imageData: NSData = categoriesInteractor.foodImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
+                entity.image = imageData
+            }
         case .some(.Politics):
-            entity.title = categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].title
-            entity.content = categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].content
-            let imageData: NSData = categoriesInteractor.politicsImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
-            entity.image = imageData
+            if !isExistsInDB(title: categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].title!) {
+                let entity = SavedNews(context: PersistenceService.context)
+                entity.title = categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].title
+                entity.content = categoriesInteractor.politicsDataArray[categoriesInteractor.indexOfNew].content
+                let imageData: NSData = categoriesInteractor.politicsImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
+                entity.image = imageData
+            }
         case .some(.Tech):
-            entity.title = categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].title
-            entity.content = categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].content
-            let imageData: NSData = categoriesInteractor.techImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
-            entity.image = imageData
+            if !isExistsInDB(title: categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].title!) {
+                let entity = SavedNews(context: PersistenceService.context)
+                entity.title = categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].title
+                entity.content = categoriesInteractor.techDataArray[categoriesInteractor.indexOfNew].content
+                let imageData: NSData = categoriesInteractor.techImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
+                entity.image = imageData
+            }
         case .none:
-            entity.title = mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].title
-            entity.content = mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].content
-            let imageData: NSData = mainInteractor.mainImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
-            entity.image = imageData
+            if !isExistsInDB(title: mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].title!) {
+                let entity = SavedNews(context: PersistenceService.context)
+                entity.title = mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].title
+                entity.content = mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].content
+                let imageData: NSData = mainInteractor.mainImageArray[categoriesInteractor.indexOfNew]!.pngData()! as NSData
+                entity.image = imageData
+            }
         }
         PersistenceService.saveContext()
+    }
+    
+    func isExistsInDB(title: String) -> Bool {
+        var arrayOfSavedNews: Array<SavedNews> = Array()
+        let fetchRequest: NSFetchRequest<SavedNews> = SavedNews.fetchRequest()
+        do {
+        let savedNews = try PersistenceService.context.fetch(fetchRequest)
+            arrayOfSavedNews.append(contentsOf: savedNews)
+        } catch {}
+        
+        for item in arrayOfSavedNews {
+            if title == item.title {
+                return true
+            }
+        }
+        
+        return false
     }
 }

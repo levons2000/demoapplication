@@ -3,8 +3,8 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
 
-    @IBOutlet weak var loginTextView: UITextView!
-    @IBOutlet weak var passwordTextView: UITextView!
+    @IBOutlet weak var loginTextView: UITextField!
+    @IBOutlet weak var passwordTextView: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
     let loginWireframe: LoginWireframe = LoginWireframe.sharedInstance

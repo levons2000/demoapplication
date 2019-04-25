@@ -1,17 +1,16 @@
 import UIKit
 import FirebaseAuth
 
-class HomeMenuTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeMenuTableViewControllerProtocol, UITextFieldDelegate {
+class HomeMenuTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HomeMenuTableViewControllerProtocol {
     
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var logoutText: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.1294, green: 0.5882, blue: 0.9529, alpha: 1.0)
-        logoutText.delegate = self
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,7 +28,6 @@ class HomeMenuTableViewController: UITableViewController, UIImagePickerControlle
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-
     }
     
     
@@ -47,7 +45,7 @@ class HomeMenuTableViewController: UITableViewController, UIImagePickerControlle
     }
     
     func addGalleryImagePickAction(alert: UIAlertController) {
-        let galleryImage = UIImage(named: "gallery")
+        let galleryImage = UIImage(named: "add_photo")
         let galleryAction = UIAlertAction(title: "Gallery", style: .default) { UIAlertAction in
             let picker = UIImagePickerController()
             picker.delegate = self
@@ -76,7 +74,8 @@ class HomeMenuTableViewController: UITableViewController, UIImagePickerControlle
         splashWireframe.presentLoginViewController()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+    @IBAction func logout(_ sender: Any) {
         do {
             try Auth.auth().signOut()
         } catch {
@@ -86,6 +85,5 @@ class HomeMenuTableViewController: UITableViewController, UIImagePickerControlle
         UserDefaults().removeObject(forKey: PasswordKey)
         let splashWireframe: SplashWireframe = SplashWireframe.sharedInstance
         splashWireframe.presentLoginViewController()
-        return true
     }
 }

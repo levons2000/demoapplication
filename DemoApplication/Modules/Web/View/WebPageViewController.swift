@@ -1,5 +1,4 @@
 import UIKit
-import WebKit
 
 class WebPageViewController: UIViewController, WebPageViewControllerProtocol {    
     
@@ -8,7 +7,7 @@ class WebPageViewController: UIViewController, WebPageViewControllerProtocol {
     
     var typeOfNew: NewsType? =  nil
     
-    @IBOutlet weak var webPage: WKWebView!
+    @IBOutlet weak var webPage: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +42,7 @@ class WebPageViewController: UIViewController, WebPageViewControllerProtocol {
     func loadWebView(urlString: String) {
         let url = URL(string: urlString)
         let urlRequest = URLRequest(url: url!)
-        webPage.load(urlRequest)
+        webPage.loadRequest(urlRequest)
     }
     
     @IBAction func backButton(_ sender: Any) {

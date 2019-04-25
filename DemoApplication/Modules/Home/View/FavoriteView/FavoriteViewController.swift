@@ -29,6 +29,8 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FavoriteTableViewCell = favoriteTableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell") as! FavoriteTableViewCell
+        cell.indexOfFavorite = indexPath.row
+        cell.tableView = tableView
         cell.newsContent.text = favoriteInteractor.favoriteArray[indexPath.row].title
         if favoriteInteractor.favoriteArray[indexPath.row].image != nil {
             cell.newsImage.image = UIImage(data: favoriteInteractor.favoriteArray[indexPath.row].image! as Data)

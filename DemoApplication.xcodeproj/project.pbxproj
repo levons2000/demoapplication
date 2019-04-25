@@ -122,6 +122,7 @@
 		0834B7A92265B59400E80B25 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		0834B7AA2265B59400E80B25 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		0834B7AB2265B59400E80B25 /* FavoriteViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerProtocol.swift; sourceTree = "<group>"; };
+		083F48D42269F261003ED283 /* DemoApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoApplication.entitlements; sourceTree = "<group>"; };
 		084BD82E22522241009A77E2 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		084BD83422522FE9009A77E2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		084BD83A225249E7009A77E2 /* SavedNews+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavedNews+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -417,6 +418,7 @@
 		84E552C621FAF0A4005A5E3A /* DemoApplication */ = {
 			isa = PBXGroup;
 			children = (
+				083F48D42269F261003ED283 /* DemoApplication.entitlements */,
 				08E2450B2248C749009AAE25 /* GoogleService-Info.plist */,
 				84E552EE21FAF77A005A5E3A /* Modules */,
 				84E552EA21FAF5E1005A5E3A /* Common */,
@@ -665,6 +667,14 @@
 					84E552C321FAF0A4005A5E3A = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					84E552DA21FAF0A5005A5E3A = {
 						CreatedOnToolsVersion = 10.1;
@@ -915,7 +925,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -971,7 +981,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -988,16 +998,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = E232RTVQ54;
+				CODE_SIGN_ENTITLEMENTS = DemoApplication/DemoApplication.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DemoApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.identifire.DemoApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigatemobile.internal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "DemoApplication/Common/\U0010SideMenuHelper/DemoApplication-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1012,16 +1024,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = E232RTVQ54;
+				CODE_SIGN_ENTITLEMENTS = DemoApplication/DemoApplication.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DemoApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.identifire.DemoApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.instigatemobile.internal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Development Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_OBJC_BRIDGING_HEADER = "DemoApplication/Common/\U0010SideMenuHelper/DemoApplication-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

@@ -1,18 +1,44 @@
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     let rootWireframe = RootWireframe()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds);
+        setupPushNotification(application: application)
         return self.rootWireframe.application(didFinishLaunchingWithOptions: launchOptions, window: self.window!)
     }
+    
+    func setupPushNotification(application: UIApplication) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            } else {
+                print("User Notification permission denied: \(error?.localizedDescription ?? "error")")
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("Successful registration, Token is:")
+        print(tokenString(deviceToken))
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for remote notifications \(error.localizedDescription)")
+    }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print(userInfo)
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -35,6 +61,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         PersistenceService.saveContext()
+    }
+    
+    func tokenString(_ deviceToken: Data) -> String {
+        let bytes = [UInt8](deviceToken)
+        var token = ""
+        for byte in bytes {
+            token += String(format: "%02x", byte)
+        }
+        
+        return token
     }
 }
 

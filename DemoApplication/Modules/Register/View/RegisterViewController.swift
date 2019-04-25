@@ -4,14 +4,14 @@ import Firebase
 
 class RegisterViewController: UIViewController, RegisterViewControllerProtocol {
     
-    @IBOutlet weak var username: UITextView!
-    @IBOutlet weak var email: UITextView!
-    @IBOutlet weak var password: UITextView!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var create: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateViewStyle()
     }
     
     @IBAction func createAccountAction(_ sender: Any) {
@@ -44,6 +44,8 @@ class RegisterViewController: UIViewController, RegisterViewControllerProtocol {
         password.layer.borderWidth = 0.5
         password.layer.borderColor = borderColor.cgColor
         password.layer.cornerRadius = 19.0
+        password.clearsOnInsertion = false
+        password.isSecureTextEntry = true
         create.layer.borderColor = borderColor.cgColor
         create.layer.cornerRadius = 19.0
     }

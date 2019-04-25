@@ -303,16 +303,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="ocS-Xd-5XU"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Logout" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VdD-Ee-WFG">
-                                                    <rect key="frame" x="72" y="23" width="69" height="25"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                        <bool key="isElement" value="NO"/>
-                                                    </accessibility>
-                                                    <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qst-fJ-C3V">
                                                     <rect key="frame" x="149" y="7" width="210" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -324,12 +314,20 @@
                                                         <action selector="logoutAction:" destination="Ut8-2h-gEJ" eventType="touchUpInside" id="Yl3-Wx-gNO"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqV-PY-phX">
+                                                    <rect key="frame" x="72" y="21.5" width="48" height="30"/>
+                                                    <state key="normal" title="Logout">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="logout:" destination="Ut8-2h-gEJ" eventType="touchUpInside" id="jOf-fg-jDv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="KqV-PY-phX" firstAttribute="leading" secondItem="w7K-AT-U4X" secondAttribute="trailing" constant="33" id="15t-8V-YXD"/>
                                                 <constraint firstItem="w7K-AT-U4X" firstAttribute="leading" secondItem="kri-md-iGe" secondAttribute="leadingMargin" constant="-7" id="4N8-VQ-TnJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="VdD-Ee-WFG" secondAttribute="bottom" constant="12" id="Yjm-c6-8n5"/>
-                                                <constraint firstItem="VdD-Ee-WFG" firstAttribute="centerY" secondItem="kri-md-iGe" secondAttribute="centerY" id="kik-GN-JX0"/>
-                                                <constraint firstItem="VdD-Ee-WFG" firstAttribute="leading" secondItem="w7K-AT-U4X" secondAttribute="trailing" constant="33" id="mGz-PH-rrv"/>
+                                                <constraint firstItem="KqV-PY-phX" firstAttribute="centerY" secondItem="w7K-AT-U4X" secondAttribute="centerY" id="UHd-2n-vQi"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="w7K-AT-U4X" secondAttribute="bottom" constant="-6" id="n6a-KX-Qhl"/>
                                                 <constraint firstItem="w7K-AT-U4X" firstAttribute="top" secondItem="kri-md-iGe" secondAttribute="topMargin" constant="-4" id="p54-bE-9zY"/>
                                             </constraints>
@@ -346,7 +344,6 @@
                     </tableView>
                     <connections>
                         <outlet property="logoutButton" destination="qst-fJ-C3V" id="DOf-3p-wn8"/>
-                        <outlet property="logoutText" destination="VdD-Ee-WFG" id="3aD-Lf-Xly"/>
                         <outlet property="userImage" destination="nPd-tZ-41h" id="Sj7-v2-B48"/>
                     </connections>
                 </tableViewController>
@@ -482,8 +479,19 @@
                                                         <constraint firstAttribute="height" constant="180" id="Iyd-Ei-p1V"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNU-nH-S4f">
+                                                    <rect key="frame" x="331" y="217" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Ruf-kB-8an"/>
+                                                        <constraint firstAttribute="width" constant="30" id="xzp-SI-nh3"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete"/>
+                                                    <connections>
+                                                        <action selector="deleteAction:" destination="qgg-B0-TP1" eventType="touchUpInside" id="58h-MI-vwZ"/>
+                                                    </connections>
+                                                </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mfA-qG-Eo1">
-                                                    <rect key="frame" x="50" y="185" width="312" height="94"/>
+                                                    <rect key="frame" x="11" y="188" width="312" height="94"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="312" id="IJ1-6y-wW4"/>
@@ -492,28 +500,21 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNU-nH-S4f">
-                                                    <rect key="frame" x="12" y="217" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Ruf-kB-8an"/>
-                                                        <constraint firstAttribute="width" constant="30" id="xzp-SI-nh3"/>
-                                                    </constraints>
-                                                    <state key="normal" image="news_icon"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XHL-aj-xm1" firstAttribute="leading" secondItem="z2p-we-g3q" secondAttribute="leading" id="2wY-Ul-UkL"/>
-                                                <constraint firstItem="xNU-nH-S4f" firstAttribute="centerY" secondItem="mfA-qG-Eo1" secondAttribute="centerY" id="ASC-0s-b60"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mfA-qG-Eo1" secondAttribute="bottom" constant="-18" id="62U-gc-DJT"/>
+                                                <constraint firstItem="mfA-qG-Eo1" firstAttribute="leading" secondItem="z2p-we-g3q" secondAttribute="leadingMargin" constant="-4" id="78i-Qm-51a"/>
+                                                <constraint firstItem="mfA-qG-Eo1" firstAttribute="top" secondItem="XHL-aj-xm1" secondAttribute="bottom" constant="8" symbolic="YES" id="FbP-If-gfb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="xNU-nH-S4f" secondAttribute="bottom" constant="17" id="IIh-m0-2ey"/>
+                                                <constraint firstItem="xNU-nH-S4f" firstAttribute="leading" secondItem="mfA-qG-Eo1" secondAttribute="trailing" constant="8" symbolic="YES" id="OpR-J9-Y1w"/>
                                                 <constraint firstItem="XHL-aj-xm1" firstAttribute="top" secondItem="z2p-we-g3q" secondAttribute="top" id="PPl-ic-KmL"/>
-                                                <constraint firstItem="mfA-qG-Eo1" firstAttribute="top" secondItem="XHL-aj-xm1" secondAttribute="bottom" constant="5" id="ecn-yg-1BF"/>
                                                 <constraint firstItem="xNU-nH-S4f" firstAttribute="top" secondItem="XHL-aj-xm1" secondAttribute="bottom" constant="37" id="huP-j8-LMX"/>
-                                                <constraint firstItem="mfA-qG-Eo1" firstAttribute="leading" secondItem="xNU-nH-S4f" secondAttribute="trailing" constant="8" symbolic="YES" id="nXt-YI-9ls"/>
                                                 <constraint firstAttribute="trailing" secondItem="XHL-aj-xm1" secondAttribute="trailing" id="q0d-nG-diI"/>
-                                                <constraint firstItem="xNU-nH-S4f" firstAttribute="leading" secondItem="z2p-we-g3q" secondAttribute="leadingMargin" constant="-3" id="rSe-hv-Pl6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="deleteButton" destination="xNU-nH-S4f" id="Of9-b3-Zlk"/>
                                             <outlet property="newsContent" destination="mfA-qG-Eo1" id="pC7-60-HrT"/>
                                             <outlet property="newsImage" destination="XHL-aj-xm1" id="cWo-ii-n6b"/>
                                         </connections>
@@ -610,6 +611,7 @@
     <resources>
         <image name="add_photo" width="153.19148254394531" height="153.19148254394531"/>
         <image name="categories" width="153.19148254394531" height="153.19148254394531"/>
+        <image name="delete" width="153.19148254394531" height="153.19148254394531"/>
         <image name="following" width="153.19148254394531" height="153.19148254394531"/>
         <image name="home" width="153.19148254394531" height="153.19148254394531"/>
         <image name="logout" width="153.19148254394531" height="153.19148254394531"/>

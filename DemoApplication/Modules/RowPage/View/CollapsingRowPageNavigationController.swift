@@ -15,9 +15,9 @@ class CollapsingRowPageNavigationController: UINavigationController {
             let wireframe: RowPageWireframe = RowPageWireframe.sharedInstance
             wireframe.presentWebPage()
         }
-        floaty.addItem(icon: UIImage(named: "save")) { item in
-            
-        }
+//        floaty.addItem(icon: UIImage(named: "save")) { item in
+//            
+//        }
         self.view.addSubview(floaty)
     }
 }
