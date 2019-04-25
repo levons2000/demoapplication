@@ -5,18 +5,16 @@ class WebPageViewController: UIViewController, WebPageViewControllerProtocol {
     let mainInteractor: MainInteractor = MainInteractor.sharedInstance
     let categoriesInteractor: CategoriesInteractor = CategoriesInteractor.sharedInstance
     
-    var typeOfNew: NewsType? =  nil
-    
     @IBOutlet weak var webPage: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if typeOfNew == nil {
-            if mainInteractor.mainDataArray[mainInteractor.indexOfNew].url != nil {
-                loadWebView(urlString: mainInteractor.mainDataArray[mainInteractor.indexOfNew].url!)
+        if categoriesInteractor.typeOfNew == nil {
+            if mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].url != nil {
+                loadWebView(urlString: mainInteractor.mainDataArray[categoriesInteractor.indexOfNew].url!)
             }
         } else {
-            switch typeOfNew {
+            switch categoriesInteractor.typeOfNew {
             case .some(.Sport):
                 if categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].url != nil {
                     loadWebView(urlString: categoriesInteractor.sportDataArray[categoriesInteractor.indexOfNew].url!)
